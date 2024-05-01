@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gmx_abstract"
-version = "0.1.0"
+version = "0.3.0"
 description = "A python client for polling and fetching actions on the GMX Exchange"
 authors = [{ name = "defiants-co", email = "amrith@creda.io" }]
 dependencies = [
@@ -13,7 +13,7 @@ dependencies = [
 
 [tool.poetry]
 name = "gmx_abstract"
-version = "0.02"
+version = "0.03"
 description = "A python client for polling and fetching actions on the GMX Exchange"
 authors = ["defiants-co"]
 

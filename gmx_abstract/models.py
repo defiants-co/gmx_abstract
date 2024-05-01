@@ -243,6 +243,7 @@ class PositionDelta:
         self.delta_collateral_amount =  initial_position.initial_collateral_amount - new_position.initial_collateral_amount
         self.delta_collateral_amount_usd = initial_position.initial_collateral_amount_usd - new_position.initial_collateral_amount_usd
         self.delta_leverage = initial_position.leverage - new_position.leverage
+        self.delta_mark_price = initial_position.mark_price - new_position.mark_price
 
     def __repr__(self):
         """
