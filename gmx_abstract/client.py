@@ -32,7 +32,7 @@ class GmxClient:
         poll_positions(address, wait_seconds): Periodically checks for changes in positions at a specified Ethereum address.
     """
 
-    def __init__(self, address: str, private_key: str, rpc_url: str):
+    def __init__(self, address: str = "", private_key: str = "", rpc_url: str = "https://arb1.arbitrum.io/rpc"):
         """
         Initializes the GmxClient with an Ethereum address, private key, and RPC URL.
 
