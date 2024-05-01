@@ -114,7 +114,22 @@ class GmxClient:
             if debug:
                 print(f"{rounds} - took {(end - start).total_seconds()} seconds ({self.rpc_url})")
 
-    def get_collateral_balances(self, address : str) -> List[TokenBalance]:
+    def get_collateral_balances(self, address: str) -> List[TokenBalance]:
+        """
+        Retrieves the balance of ERC20 tokens and Ether for a given address.
+
+        This function fetches balances of all ERC20 tokens associated with the provided address
+        using the `get_erc20tokens` method, and adds the Ether balance. The balance of Ether is 
+        retrieved by the `get_eth_balance` method, and represented as a `TokenBalance` object
+        with an empty `contract_id` to distinguish it from ERC20 tokens.
+
+        Parameters:
+        - address (str): The Ethereum address to query the balances for.
+
+        Returns:
+        - List[TokenBalance]: A list of `TokenBalance` objects, each representing the balance 
+        of a specific token (ERC20 or Ether) at the given address.
+        """
         return get_erc20tokens(self.web3_client, address) + [
             TokenBalance(
                 balance=get_eth_balance(w3=self.web3_client, address=address),
@@ -124,5 +139,15 @@ class GmxClient:
         ]
 
     def get_my_collateral_balances(self) -> List[TokenBalance]:
+        """
+        Retrieves the collateral balances (ERC20 tokens and Ether) for the user's address.
+
+        This function acts as a convenience wrapper around `get_collateral_balances` by
+        directly using the user's stored address to fetch the balances. It simplifies
+        access to collateral balances for the predefined user address.
+
+        Returns:
+        - List[TokenBalance]: A list of `TokenBalance` objects, each representing the balance 
+        of a specific token (ERC20 or Ether) at the user's address.
+        """
         return self.get_collateral_balances(self.address)
-    
