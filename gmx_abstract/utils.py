@@ -4,7 +4,7 @@ from typing import List, Tuple
 from web3 import Web3
 from gmx_abstract import TOKEN_ABI, ERC_20_DATA
 
-def configure(private_key: str, address: str, rpc_url: str):
+def configure(private_key: str, address: str, rpc_url: str = "https://arb1.arbitrum.io/rpc"):
     """
     Configures the GMX trading environment with specified user credentials and blockchain RPC details.
 
